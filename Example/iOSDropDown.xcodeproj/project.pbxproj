@@ -29,8 +29,8 @@
 
 /* Begin PBXFileReference section */
 		09510F0E7C4EE02EBE48EC3C /* Pods-iOSDropDown_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDropDown_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDropDown_Tests/Pods-iOSDropDown_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		0AEC41F38D0601B0BC9B4D63 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		40F46F126069E60ABA993722 /* iOSDropDown.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = iOSDropDown.podspec; path = ../iOSDropDown.podspec; sourceTree = "<group>"; };
+		0AEC41F38D0601B0BC9B4D63 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		40F46F126069E60ABA993722 /* iOSDropDown.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = iOSDropDown.podspec; path = ../iOSDropDown.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		45B198414089775D4E3F6354 /* Pods_iOSDropDown_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDropDown_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD01AFB9204008FA782 /* iOSDropDown_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSDropDown_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		607FACE51AFB9204008FA782 /* iOSDropDown_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSDropDown_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		71D6B7AB4A99D12089C2B6AA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		71D6B7AB4A99D12089C2B6AA /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		7F866BE95539D98B10CF32AC /* Pods_iOSDropDown_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSDropDown_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		817E705A9DF75EF378377E52 /* Pods-iOSDropDown_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDropDown_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDropDown_Example/Pods-iOSDropDown_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8C8C14A541AFA8DBF170CB96 /* Pods-iOSDropDown_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSDropDown_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iOSDropDown_Tests/Pods-iOSDropDown_Tests.release.xcconfig"; sourceTree = "<group>"; };
