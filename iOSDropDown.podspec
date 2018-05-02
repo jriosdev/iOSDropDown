@@ -26,7 +26,7 @@ iOSDropDown is an Awesome DropDown Library with Search and other customization o
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jishnu Raj T' => 'jriosdev@gmail.com' }
   s.source           = { :git => 'https://github.com/jriosdev/iOSDropDown.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+   s.social_media_url = 'https://twitter.com/jishnurajt
 
   s.ios.deployment_target = '8.0'
 
