@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'iOSDropDown_Example' do
+  pod 'iOSDropDown', :path => '../'
+
+  target 'iOSDropDown_Tests' do
+    inherit! :search_paths
+
+    pod 'FBSnapshotTestCase' , '~> 2.1.4'
+  end
+end
