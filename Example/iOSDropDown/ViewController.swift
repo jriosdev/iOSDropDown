@@ -3,7 +3,7 @@
 //  iOSDropDown
 //
 //  Created by Jishnu Raj on 05/02/2018.
-//  Copyright (c) 2018 Jishnu Raj. All rights reserved.
+//  Copyright (c) 2018 JRiOSdev. All rights reserved.
 //
 
 import UIKit
