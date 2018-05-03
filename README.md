@@ -1,6 +1,5 @@
 # iOSDropDown
 
-[![CI Status](https://img.shields.io/travis/jriosdev/iOSDropDown.svg?style=flat)](https://travis-ci.org/jriosdev/iOSDropDown)
 [![Version](https://img.shields.io/cocoapods/v/iOSDropDown.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
 [![Cocoapods](http://img.shields.io/badge/Cocoapods-available-green.svg?style=flat)](http://cocoadocs.org/docsets/DropDown/)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
@@ -56,10 +55,13 @@ Just clone and add the following Swift files to your project:
 - iOSDropDown.swfit
 
 ## Basic usage ✨
-
+### StoryBoard Method
+  Simple
+[![](images/5.gif)](images/5.gif)
+### Code
 ```swift
 let dropDown = DropDown()
-
+dropDown.frame = CGRect(x:50 ,y:70 , width:200 , height:40)  //Set frame
 
 // The list of array to display. Can be changed dynamically
 dropDown.dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
