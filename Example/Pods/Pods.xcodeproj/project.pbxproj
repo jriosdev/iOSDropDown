@@ -85,7 +85,7 @@
 		56D73CD1465DBE2238305B65E7247D12 /* Pods-iOSDropDown_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-iOSDropDown_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		58A2557E7CE20AACCD1B28B1CD1F920D /* FBSnapshotTestCasePlatform.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSnapshotTestCasePlatform.m; path = FBSnapshotTestCase/FBSnapshotTestCasePlatform.m; sourceTree = "<group>"; };
 		5E1556DBAA19117659E008414535C33A /* iOSDropDown.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = iOSDropDown.modulemap; sourceTree = "<group>"; };
-		6273A41A8080BC697B8791354B28A9BA /* iOSDropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = iOSDropDown.swift; path = iOSDropDown/Classes/iOSDropDown.swift; sourceTree = "<group>"; };
+		6273A41A8080BC697B8791354B28A9BA /* iOSDropDown.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = iOSDropDown.swift; sourceTree = "<group>"; };
 		671C050233D53A696B5139AFD1F4B8F9 /* iOSDropDown.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = iOSDropDown.xcconfig; sourceTree = "<group>"; };
 		67E276593855381568F725E69496F29C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B00E3D94D217534FBA71A855925AA0E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -302,6 +302,15 @@
 			path = "Target Support Files/Pods-iOSDropDown_Example";
 			sourceTree = "<group>";
 		};
+		CAB2B404209AE5D700254A2E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6273A41A8080BC697B8791354B28A9BA /* iOSDropDown.swift */,
+			);
+			name = Classes;
+			path = "New Group1/Classes";
+			sourceTree = "<group>";
+		};
 		DABA8F915C9CA07FFC32E7CF8D7B7A6B /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,7 +322,7 @@
 		DB52860B627CECE13778D53998EEFEB8 /* iOSDropDown */ = {
 			isa = PBXGroup;
 			children = (
-				6273A41A8080BC697B8791354B28A9BA /* iOSDropDown.swift */,
+				CAB2B404209AE5D700254A2E /* Classes */,
 				BCB0A33B1728FFAF053727F27FF4EFAF /* Pod */,
 				52305A066CC1B339975E5496864C8403 /* Support Files */,
 			);
