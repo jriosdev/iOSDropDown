@@ -58,7 +58,22 @@ Just clone and add the following Swift files to your project:
 ### StoryBoard Method
   Simply add UITextField to Your ViewCOntroller And Connect @IBOutlet to DropDown Class
 [![](images/5.gif)](images/5.gif)
-### Code
+
+```swift
+
+@IBOutlet weak var dropDown : DropDown!
+
+// The list of array to display. Can be changed dynamically
+dropDown.dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
+
+// The the Closure returns Selected Index and String 
+dropDown.didSelect{(selectedText , index) in
+self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
+}
+```
+###                  OR
+
+### Code Method
 ```swift
 let dropDown = DropDown()
 dropDown.frame = CGRect(x:50 ,y:70 , width:200 , height:40)  //Set frame
