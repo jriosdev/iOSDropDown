@@ -30,7 +30,7 @@ iOSDropDown is an Awesome Drop Down Menu Library with Search & other customizati
 
     # s.ios.deployment_target = '8.0'
 
-     s.source_files = 'iOSDropDown/*.Swift
+     s.source_files = 'iOSDropDown/Classes/*.swift
   
   # s.resource_bundles = {
   #   'iOSDropDown' => ['iOSDropDown/Assets/*.png']
