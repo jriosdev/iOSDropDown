@@ -112,8 +112,8 @@ You can customize these properties of the drop down:
 
 ## Author
 
-Jishnu Raj, jriosdev@gmail.com
-[![Twitter: @jishnurajt](http://img.shields.io/badge/contact-%40kevinh6113-70a1fb.svg?style=flat)](https://twitter.com/jishnurajt)
+Jishnu RajT, jriosdev@gmail.com
+[![Contact](https://img.shields.io/badge/Contact-%40jishnurajt-blue.svg?style=flat)](https://twitter.com/jishnurajt)
 
 ## License
 
