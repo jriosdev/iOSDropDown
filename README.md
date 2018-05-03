@@ -7,10 +7,10 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
 [![Star](https://img.shields.io/amo/stars/dustman.svg?style=flat)]()
-[![Contact](https://img.shields.io/badge/Contact-%40jishnurajt-blue.svg?style=flat)](https://twitter.com/jishnurajt)
+
 ## Drop Down With Search
 It's a Swift Library to support Drop Down Menu in iOS
-### Support Search Return Correct index
+### Support Search and Return Correct index
 [![](images/1.gif)](images/1.gif)
 ### Customizing
 [![](images/2.gif)](images/2.gif)
@@ -112,8 +112,8 @@ You can customize these properties of the drop down:
 
 ## Author
 
-Jishnu Raj, jriosdev@gmail.com
-[![Twitter: @jishnurajt](http://img.shields.io/badge/contact-%40kevinh6113-70a1fb.svg?style=flat)](https://twitter.com/jishnurajt)
+Jishnu RajT, jriosdev@gmail.com
+[![Contact](https://img.shields.io/badge/Contact-%40jishnurajt-blue.svg?style=flat)](https://twitter.com/jishnurajt)
 
 ## License
 
