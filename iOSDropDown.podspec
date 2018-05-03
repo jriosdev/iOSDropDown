@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iOSDropDown'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = ' iOSDropDown is an Awesome DropDown Library with Search'
   s.swift_version      = '4.0'
   s.description      = <<-DESC
@@ -16,7 +16,7 @@ iOSDropDown is an Awesome Drop Down Menu Library with Search & other customizati
                        DESC
 
   s.homepage         = 'https://github.com/jriosdev/iOSDropDown'
-  s.screenshots     = 'https://github.com/jriosdev/iOSDropDown/blob/master/images/1.gif', 'https://github.com/jriosdev/iOSDropDown/blob/master/images/2.gif'
+  s.screenshots     = 'https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/1.gif', 'https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/2.gif'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jishnu Raj T' => 'jriosdev@gmail.com' }
   s.source           = { :git => 'https://github.com/jriosdev/iOSDropDown.git', :tag => s.version.to_s }
