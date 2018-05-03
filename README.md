@@ -56,7 +56,7 @@ Just clone and add the following Swift files to your project:
 
 ## Basic usage ✨
 ### StoryBoard Method
-  Simple
+  Simply add UITextField to Your ViewCOntroller And Connect @IBOutlet to DropDown Class
 [![](images/5.gif)](images/5.gif)
 ### Code
 ```swift
