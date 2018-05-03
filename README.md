@@ -1,7 +1,7 @@
 # iOSDropDown
 
 [![Version](https://img.shields.io/cocoapods/v/iOSDropDown.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
-[![Cocoapods](http://img.shields.io/badge/Cocoapods-available-green.svg?style=flat)](http://cocoadocs.org/docsets/DropDown/)
+[![Cocoapods](http://img.shields.io/badge/Cocoapods-available-green.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
@@ -26,8 +26,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Features
  1. Simple UITextField Extension And simple to use  , We can Access all properties of UITextField
     [![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/4.gif)](images/4.gif)
- 2. DropDown Search can enable or desable
- 3. Change color of List backgound and selected color 
+ 2. DropDown Search can enable or disable
+ 3. Change color of List background and selected color 
  4. Change Maximum Hieght of List and Height of each Row
 
 ## Installation
@@ -38,7 +38,8 @@ iOSDropDown is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 1. Add `pod 'iOSDropDown'` to your *Podfile*.
 2. Install the pod(s) by running `pod install`.
-3. Add `import iOSDropDown` in the .swift files where you want to use it
+3. Add `iOSDropDown.framework` in Build Phases > Link Binary with Libraries
+4. Add `import iOSDropDown` in the .swift files where you want to use it
 
 ### Carthage
 
@@ -56,7 +57,8 @@ Just clone and add the following Swift files to your project:
 
 ## Basic usage ✨
 ### StoryBoard Method
-  Simply add UITextField to Your ViewCOntroller And Connect @IBOutlet to DropDown Class
+  Simply add UITextField to Your ViewCOntroller And Connect @IBOutlet - DropDown Class
+  
 [![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/5.gif)](images/5.gif)
 
 ```swift
@@ -119,7 +121,7 @@ Closures
 ## Customize iOSDropDown 🖌
 
 You can customize these properties of the drop down:
-- `isSearchEnabled ` : You can Enable or Desable on DropDown .Default value Is `true`
+- `isSearchEnabled ` : You can Enable or Disable on DropDown .Default value Is `true`
 - `hideOptionsWhenSelect` : This  option to hide the list when click option one item. Default value is `true`
 - `selectedRowColor` : Color of selected Row item in DropDown Default value is `.cyan`
 - `rowBackgroundColor` : Color of  DropDown Default value is `.white`
@@ -129,7 +131,7 @@ You can customize these properties of the drop down:
 
 ## Author
 
-Jishnu RajT, jriosdev@gmail.com
+Jishnu Raj T, jriosdev@gmail.com
 [![Contact](https://img.shields.io/badge/Contact-%40jishnurajt-blue.svg?style=flat)](https://twitter.com/jishnurajt)
 
 ## License
