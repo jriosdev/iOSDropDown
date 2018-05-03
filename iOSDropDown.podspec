@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iOSDropDown'
-  s.version          = '0.1.2'
+  s.version          = '0.1.4'
   s.summary          = ' iOSDropDown is an Awesome DropDown Library with Search'
   s.swift_version      = '4.0'
 # This description is used to generate tags and improve search results.
@@ -26,7 +26,7 @@ iOSDropDown is an Awesome Drop Down Menu Library with Search & other customizati
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jishnu Raj T' => 'jriosdev@gmail.com' }
   s.source           = { :git => 'https://github.com/jriosdev/iOSDropDown.git', :tag => s.version.to_s }
-   s.social_media_url = 'https://twitter.com/jishnurajt
+   s.social_media_url = 'https://twitter.com/jishnurajt'
 
 
 
