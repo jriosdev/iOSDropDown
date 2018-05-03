@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-iOSDropDown is an Awesome DropDown Library with Search and other customization options
+iOSDropDown is an Awesome Drop Down Menu Library with Search & other customization options
                        DESC
 
   s.homepage         = 'https://github.com/jriosdev/iOSDropDown'
@@ -28,9 +28,9 @@ iOSDropDown is an Awesome DropDown Library with Search and other customization o
   s.source           = { :git => 'https://github.com/jriosdev/iOSDropDown.git', :tag => s.version.to_s }
    s.social_media_url = 'https://twitter.com/jishnurajt
 
-  s.ios.deployment_target = '8.0'
+    # s.ios.deployment_target = '8.0'
 
-  s.source_files = 'iOSDropDown/Classes/**/*'
+     s.source_files = 'iOSDropDown/*.Swift
   
   # s.resource_bundles = {
   #   'iOSDropDown' => ['iOSDropDown/Assets/*.png']
@@ -39,4 +39,5 @@ iOSDropDown is an Awesome DropDown Library with Search and other customization o
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
+  
 end
