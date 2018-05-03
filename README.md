@@ -2,14 +2,19 @@
 
 [![CI Status](https://img.shields.io/travis/jriosdev/iOSDropDown.svg?style=flat)](https://travis-ci.org/jriosdev/iOSDropDown)
 [![Version](https://img.shields.io/cocoapods/v/iOSDropDown.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
+[![Cocoapods](http://img.shields.io/badge/Cocoapods-available-green.svg?style=flat)](http://cocoadocs.org/docsets/DropDown/)
+[![Swift 4.0](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](LICENSE)
 [![Platform](https://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
-
+[![Star](https://img.shields.io/amo/stars/dustman.svg?style=flat)]()
+[![Contact](https://img.shields.io/badge/Contact-%40jishnurajt-blue.svg?style=flat)](https://twitter.com/jishnurajt)
 ## Drop Down With Search
 It's a Swift Library to support Drop Down Menu in iOS
-
+### Support Search Return Correct index
 [![](images/1.gif)](images/1.gif)
+### Customizing
 [![](images/2.gif)](images/2.gif)
+### hideOptionWhenSelect = false
 [![](images/3.gif)](images/3.gif)
 
 
@@ -20,11 +25,11 @@ It's a Swift Library to support Drop Down Menu in iOS
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Features
- 1.Simple UITextField Extension And simple to use  , We can Access all properties of UITextField
+ 1. Simple UITextField Extension And simple to use  , We can Access all properties of UITextField
     [![](images/4.gif)](images/4.gif)
- 2.DropDown Search can enable or desable
- 3.Change color of List backgound and selected color 
- 4.Change Maximum Hieght of List and Height of each Row
+ 2. DropDown Search can enable or desable
+ 3. Change color of List backgound and selected color 
+ 4. Change Maximum Hieght of List and Height of each Row
 
 ## Installation
 ### CocoaPods
@@ -66,7 +71,7 @@ self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
 
 ```
 ### Other Options
- *Actions 
+ Actions 
  
    ```swift
     dropDown.showList()  // To show the Drop Down Menu
@@ -108,6 +113,7 @@ You can customize these properties of the drop down:
 ## Author
 
 Jishnu Raj, jriosdev@gmail.com
+[![Twitter: @jishnurajt](http://img.shields.io/badge/contact-%40kevinh6113-70a1fb.svg?style=flat)](https://twitter.com/jishnurajt)
 
 ## License
 
