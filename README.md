@@ -66,10 +66,11 @@ Just clone and add the following Swift files to your project:
 @IBOutlet weak var dropDown : DropDown!
 
 // The list of array to display. Can be changed dynamically
-dropDown.dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
-
+dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
+//Its Id Values and its optional
+dropDown.optionIds = [1,23,54,22] 
 // The the Closure returns Selected Index and String 
-dropDown.didSelect{(selectedText , index) in
+dropDown.didSelect{(selectedText , index ,id) in
 self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
 }
 ```
@@ -77,17 +78,17 @@ self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
 
 ### Code Method
 ```swift
-let dropDown = DropDown()
-dropDown.frame = CGRect(x:50 ,y:70 , width:200 , height:40)  //Set frame
+let  dropDown = DropDown(frame: CGRect(x: 110, y: 140, width: 200, height: 30)) // set frame
 
 // The list of array to display. Can be changed dynamically
-dropDown.dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
-
+dropDown.optionArray = ["Option 1", "Option 2", "Option 3"]
+// Its Id Values and its optional
+dropDown.optionIds = [1,23,54,22] 
 // The the Closure returns Selected Index and String 
-dropDown.didSelect{(selectedText , index) in
+dropDown.didSelect{(selectedText , index ,id) in
 self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index)"
+    }
 }
-
 ```
 ### Other Options
  Actions 
@@ -125,10 +126,11 @@ You can customize these properties of the drop down:
 - `hideOptionsWhenSelect` : This  option to hide the list when click option one item. Default value is `true`
 - `selectedRowColor` : Color of selected Row item in DropDown Default value is `.cyan`
 - `rowBackgroundColor` : Color of  DropDown Default value is `.white`
-- `tableHeight`: The maximum Height of of List. Default value is `100 ` 
+- `listHeight`: The maximum Height of of List. Default value is `150 ` 
 - `rowHeight`: The  Height of of List in the List. Default value is `50`
 
-
+## Note :
+                    If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
 ## Author
 
 Jishnu Raj T, jriosdev@gmail.com

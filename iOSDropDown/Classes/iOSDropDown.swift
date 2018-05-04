@@ -1,11 +1,7 @@
 
 //
 //  iOSDropDown.swift
-//  iOSDropDown
 //
-//
-//  Extension.swift
-//  DropDownWithSearch
 //
 //  Created by Jishnu Raj T on 26/04/18.
 //  Copyright © 2018 JRiOSdev. All rights reserved.
@@ -21,60 +17,26 @@ public class DropDown : UITextField{
     
     public fileprivate(set) var selectedIndex: Int?
     
-    //  Configurations
     
-    public var rowHeight: CGFloat = 50
-    public var rowBackgroundColor: UIColor = .white
-    public var selectedRowColor: UIColor = .cyan
-    public var hideOptionsWhenSelect = true
-    public var isSearchEnable: Bool = true {
+    //MARK: IBInspectable
+    
+   @IBInspectable public var rowHeight: CGFloat = 50
+   @IBInspectable public var rowBackgroundColor: UIColor = .white
+   @IBInspectable public var selectedRowColor: UIColor = .cyan
+   @IBInspectable public var hideOptionsWhenSelect = true
+   @IBInspectable  public var isSearchEnable: Bool = true {
         didSet{
             addGesture()
         }
     }
-    //Variables
-    fileprivate  var tableheightX: CGFloat = 100
-    fileprivate  var dataArray = [String]()
-    public var optionArray = [String]() {
-        didSet{
-            self.dataArray = self.optionArray
-        }
-    }
-    var searchText = String() {
-        didSet{
-            if searchText == "" {
-                self.dataArray = self.optionArray
-            }else{
-                self.dataArray = optionArray.filter {
-                    return $0.range(of: searchText, options: .caseInsensitive) != nil
-                }
-            }
-            reSizeTable()
-            selectedIndex = nil
-            self.table.reloadData()
-        }
-    }
-    public var arrowPadding: CGFloat = 7.0 {
-        didSet{
-            let size = arrow.superview!.frame.size.width-(arrowPadding*2)
-            arrow.frame = CGRect(x: arrowPadding, y: arrowPadding, width: size, height: size)
-        }
-    }
-    required public init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        
-        setupUI()
-        self.delegate = self
-    }
     
-    //MARK: IBInspectable
     
     @IBInspectable public var borderColor: UIColor =  UIColor.lightGray {
         didSet {
             layer.borderColor = borderColor.cgColor
         }
     }
-    @IBInspectable public var tableHieght: CGFloat = 50{
+    @IBInspectable public var listHeight: CGFloat = 150{
         didSet {
             
         }
@@ -91,8 +53,52 @@ public class DropDown : UITextField{
         }
     }
     
+    //Variables
+    fileprivate  var tableheightX: CGFloat = 100
+    fileprivate  var dataArray = [String]()
+    public var optionArray = [String]() {
+        didSet{
+            self.dataArray = self.optionArray
+        }
+    }
+    public var optionIds : [Int]?
+    var searchText = String() {
+        didSet{
+            if searchText == "" {
+                self.dataArray = self.optionArray
+            }else{
+                self.dataArray = optionArray.filter {
+                    return $0.range(of: searchText, options: .caseInsensitive) != nil
+                }
+            }
+            reSizeTable()
+            selectedIndex = nil
+            self.table.reloadData()
+        }
+    }
+    fileprivate var arrowPadding: CGFloat = 7.0 {
+        didSet{
+            let size = arrow.superview!.frame.size.width-(arrowPadding*2)
+            arrow.frame = CGRect(x: arrowPadding, y: arrowPadding, width: size, height: size)
+        }
+    }
+  
+    // Init
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+        self.delegate = self
+    }
+    
+    public required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        setupUI()
+        self.delegate = self
+    }
+    
+    
     //MARK: Closures
-    fileprivate var didSelectCompletion: (String, Int) -> () = {selectedText, index in }
+    fileprivate var didSelectCompletion: (String, Int ,Int) -> () = {selectedText, index , id  in }
     fileprivate var TableWillAppearCompletion: () -> () = { }
     fileprivate var TableDidAppearCompletion: () -> () = { }
     fileprivate var TableWillDisappearCompletion: () -> () = { }
@@ -132,10 +138,10 @@ public class DropDown : UITextField{
     public func showList() {
         
         TableWillAppearCompletion()
-        if tableHieght > rowHeight * CGFloat( dataArray.count) {
+        if listHeight > rowHeight * CGFloat( dataArray.count) {
             self.tableheightX = rowHeight * CGFloat(dataArray.count)
         }else{
-            self.tableheightX = tableHieght
+            self.tableheightX = listHeight
         }
         table = UITableView(frame: CGRect(x: self.frame.minX,
                                           y: self.frame.minY,
@@ -214,10 +220,10 @@ public class DropDown : UITextField{
         isSelected ?  hideList() : showList()
     }
     func reSizeTable() {
-        if tableHieght > rowHeight * CGFloat( dataArray.count) {
+        if listHeight > rowHeight * CGFloat( dataArray.count) {
             self.tableheightX = rowHeight * CGFloat(dataArray.count)
         }else{
-            self.tableheightX = tableHieght
+            self.tableheightX = listHeight
         }
         UIView.animate(withDuration: 0.2,
                        delay: 0.1,
@@ -239,7 +245,7 @@ public class DropDown : UITextField{
     }
     
     //MARK: Actions Methods
-    public func didSelect(completion: @escaping (_ selectedText: String, _ index: Int) -> ()) {
+    public func didSelect(completion: @escaping (_ selectedText: String, _ index: Int , _ id:Int ) -> ()) {
         didSelectCompletion = completion
     }
     
@@ -342,7 +348,12 @@ extension DropDown: UITableViewDelegate {
             self.endEditing(true)
         }
         if let selected = optionArray.index(where: {$0 == selectedText}) {
-            didSelectCompletion(selectedText, selected)
+            if let id = optionIds?[selected] {
+                didSelectCompletion(selectedText, selected , id )
+            }else{
+                didSelectCompletion(selectedText, selected , 0)
+            }
+            
         }
         
     }

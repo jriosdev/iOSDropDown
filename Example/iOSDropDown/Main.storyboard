@@ -13,7 +13,7 @@
         <!--View Controller1-->
         <scene sceneID="la3-JW-yFm">
             <objects>
-                <viewController id="U9U-T5-Ryu" customClass="ViewController1" customModule="DropDownWithSearch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U9U-T5-Ryu" customClass="ViewController1" customModule="iOSDropDown_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yKM-Bg-uGK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,14 +41,14 @@
                                     <segment title="Custom"/>
                                 </segments>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected option details here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obl-MW-diN">
-                                <rect key="frame" x="16" y="629" width="343" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Selected option details here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obl-MW-diN">
+                                <rect key="frame" x="16" y="632" width="343" height="20"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rB6-uP-8Ez">
-                                <rect key="frame" x="10" y="126" width="355" height="495"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rB6-uP-8Ez">
+                                <rect key="frame" x="10" y="126" width="355" height="488"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Select Your Country" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0cc-wG-GZ9" customClass="DropDown" customModule="iOSDropDown">
                                         <rect key="frame" x="69" y="54" width="218" height="30"/>
@@ -57,13 +57,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                            <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                 <real key="value" value="200"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ZN-gm-7r0">
-                                        <rect key="frame" x="98" y="445" width="159" height="30"/>
+                                        <rect key="frame" x="98" y="458" width="159" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="MZ3-Za-SIj"/>
@@ -77,7 +77,7 @@
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKh-B2-FUx">
-                                        <rect key="frame" x="18" y="23" width="319" height="458"/>
+                                        <rect key="frame" x="18" y="23" width="319" height="471"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HideOptionWhenSelect" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87O-eR-DZ2">
                                                 <rect key="frame" x="20" y="272" width="151" height="35"/>
@@ -150,7 +150,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                         <real key="value" value="100"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -165,7 +165,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                         <real key="value" value="150"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -180,7 +180,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                         <real key="value" value="150"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -195,7 +195,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                         <real key="value" value="150"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
@@ -210,12 +210,12 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                         <real key="value" value="150"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFK-tR-kay" customClass="DropDown" customModule="DropDownWithSearch" customModuleProvider="target">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JFK-tR-kay" customClass="DropDown" customModule="iOSDropDown_Example" customModuleProvider="target">
                                                 <rect key="frame" x="193" y="65" width="99" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <nil key="textColor"/>
@@ -248,19 +248,8 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
                                                         <real key="value" value="100"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="select Menu" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="orI-w2-HaD" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="135" y="354" width="97" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="tableHieght">
-                                                        <real key="value" value="200"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
@@ -326,11 +315,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="4aF-Bk-hh3" firstAttribute="centerX" secondItem="yKM-Bg-uGK" secondAttribute="centerX" id="1ur-M8-gok"/>
-                            <constraint firstItem="XDH-Pm-rKm" firstAttribute="bottom" secondItem="obl-MW-diN" secondAttribute="bottom" constant="20" id="8rv-Mc-na1"/>
+                            <constraint firstItem="XDH-Pm-rKm" firstAttribute="bottom" secondItem="obl-MW-diN" secondAttribute="bottom" constant="15" id="8rv-Mc-na1"/>
                             <constraint firstItem="rB6-uP-8Ez" firstAttribute="top" secondItem="1hJ-Zs-hfA" secondAttribute="bottom" constant="8" id="Am8-aJ-nLq"/>
                             <constraint firstItem="obl-MW-diN" firstAttribute="leading" secondItem="XDH-Pm-rKm" secondAttribute="leading" constant="16" id="FMk-ZX-fua"/>
                             <constraint firstItem="XDH-Pm-rKm" firstAttribute="trailing" secondItem="obl-MW-diN" secondAttribute="trailing" constant="16" id="Zb5-33-AsY"/>
-                            <constraint firstItem="obl-MW-diN" firstAttribute="top" secondItem="rB6-uP-8Ez" secondAttribute="bottom" constant="8" id="h57-2C-kUu"/>
+                            <constraint firstItem="obl-MW-diN" firstAttribute="top" secondItem="rB6-uP-8Ez" secondAttribute="bottom" id="h57-2C-kUu"/>
                             <constraint firstItem="1hJ-Zs-hfA" firstAttribute="width" secondItem="4aF-Bk-hh3" secondAttribute="width" id="hFY-8p-taa"/>
                             <constraint firstItem="rB6-uP-8Ez" firstAttribute="leading" secondItem="XDH-Pm-rKm" secondAttribute="leading" constant="10" id="lVY-5X-MO8"/>
                             <constraint firstItem="1hJ-Zs-hfA" firstAttribute="centerX" secondItem="yKM-Bg-uGK" secondAttribute="centerX" id="rx6-Zu-ycD"/>

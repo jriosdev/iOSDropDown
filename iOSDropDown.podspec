@@ -8,11 +8,11 @@
 
 Pod::Spec.new do |s|
   s.name             = 'iOSDropDown'
-  s.version          = '0.1.8'
-  s.summary          = ' iOSDropDown is an Awesome DropDown Library with Search'
+  s.version          = '0.1.9'
+  s.summary          = ' iOSDropDown is an Awesome DropDown Library with Search and other customization options'
   s.swift_version      = '4.0'
   s.description      = <<-DESC
-iOSDropDown is an Awesome Drop Down Menu Library with Search & other customization options
+iOSDropDown is an Awesome Drop Down Menu Library with Search & other customization options For iOS
                        DESC
 
   s.homepage         = 'https://github.com/jriosdev/iOSDropDown'
