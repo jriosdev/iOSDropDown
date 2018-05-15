@@ -41,7 +41,7 @@ public class DropDown : UITextField{
             
         }
     }
-    @IBInspectable public var borderWidth: CGFloat = 1.0 {
+    @IBInspectable public var borderWidth: CGFloat = 0.0 {
         didSet {
             layer.borderWidth = borderWidth
         }
@@ -323,7 +323,7 @@ extension DropDown: UITableViewDataSource {
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
         cell!.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell!.selectionStyle = .none
-        
+        cell?.textLabel?.font = self.font
         return cell!
     }
 }
