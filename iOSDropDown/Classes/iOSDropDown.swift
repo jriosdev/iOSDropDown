@@ -324,6 +324,7 @@ extension DropDown: UITableViewDataSource {
         cell!.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell!.selectionStyle = .none
         cell?.textLabel?.font = self.font
+        cell?.textLabel?.textAlignment = self.textAlignment
         return cell!
     }
 }
