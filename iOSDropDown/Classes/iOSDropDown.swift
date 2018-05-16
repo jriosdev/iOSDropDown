@@ -76,7 +76,7 @@ public class DropDown : UITextField{
             self.table.reloadData()
         }
     }
-    fileprivate var arrowPadding: CGFloat = 7.0 {
+    fileprivate var arrowPadding: CGFloat = 4.5 {
         didSet{
             let size = arrow.superview!.frame.size.width-(arrowPadding*2)
             arrow.frame = CGRect(x: arrowPadding, y: arrowPadding, width: size, height: size)
@@ -108,7 +108,7 @@ public class DropDown : UITextField{
         
         let size = self.frame.height
         let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size - 2*arrowPadding, height: size))
-        let arrowContainerView = UIView(frame: CGRect(x: self.bounds.maxX - size,
+        let arrowContainerView = UIView(frame: CGRect(x: self.bounds.maxX - 2*arrowPadding,
                                                       y: 0,
                                                       width: size,
                                                       height: size))
