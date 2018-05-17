@@ -127,10 +127,11 @@ You can customize these properties of the drop down:
 - `selectedRowColor` : Color of selected Row item in DropDown Default value is `.cyan`
 - `rowBackgroundColor` : Color of  DropDown Default value is `.white`
 - `listHeight`: The maximum Height of of List. Default value is `150 ` 
-- `rowHeight`: The  Height of of List in the List. Default value is `50`
+- `rowHeight`: The  Height of of List in the List. Default value is  ` value of TextField`
+- `Alingment and Fonts are same as TextField You Can change it`
 
 ## Note :
-                    If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
+    If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
 ## Author
 
 Jishnu Raj T, jriosdev@gmail.com
