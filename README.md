@@ -127,7 +127,7 @@ You can customize these properties of the drop down:
 - `selectedRowColor` : Color of selected Row item in DropDown Default value is `.cyan`
 - `rowBackgroundColor` : Color of  DropDown Default value is `.white`
 - `listHeight`: The maximum Height of of List. Default value is `150 ` 
-- `rowHeight`: The  Height of of List in the List. Default value is  ` value of TextField`
+- `rowHeight`: The  Height of of List in the List. Default value is  ` 30`
 - `Alingment and Fonts are same as TextField You Can change it`
 
 ## Note :

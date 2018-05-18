@@ -20,7 +20,7 @@ public class DropDown : UITextField{
     
     //MARK: IBInspectable
     
-   @IBInspectable public var rowHeight: CGFloat = 50
+   @IBInspectable public var rowHeight: CGFloat = 30
    @IBInspectable public var rowBackgroundColor: UIColor = .white
    @IBInspectable public var selectedRowColor: UIColor = .cyan
    @IBInspectable public var hideOptionsWhenSelect = true
@@ -108,13 +108,15 @@ public class DropDown : UITextField{
         
         let size = self.frame.height
         let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size - 2*arrowPadding, height: size))
-        let arrowContainerView = UIView(frame: CGRect(x: self.bounds.maxX - 2*arrowPadding,
+       
+       
+        self.rightView = rightView
+        self.rightViewMode = .always
+        let arrowContainerView = UIView(frame: CGRect(x: self.bounds.maxX - size,
                                                       y: 0,
                                                       width: size,
                                                       height: size))
-        arrowContainerView.isUserInteractionEnabled = true
-        self.rightView = rightView
-        self.rightViewMode = .always
+        
         self.addSubview(arrowContainerView)
         
         arrow = Arrow(origin: CGPoint(x: arrowPadding,
