@@ -1,4 +1,4 @@
-# iOSDropDown
+# iOS DropDown
 
 [![Version](https://img.shields.io/cocoapods/v/iOSDropDown.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
 [![Cocoapods](http://img.shields.io/badge/Cocoapods-available-green.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
