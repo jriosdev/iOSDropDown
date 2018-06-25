@@ -32,6 +32,6 @@ iOSDropDown is an Awesome Drop Down Menu Library with Search & other customizati
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
    s.frameworks = 'UIKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  
   
 end
