@@ -7,7 +7,7 @@
 [![Platform](https://img.shields.io/badge/platform-ios-blue.svg?style=flat)](https://cocoapods.org/pods/iOSDropDown)
 [![Star](https://img.shields.io/amo/stars/dustman.svg?style=flat)]()
 
-## Drop Down With Search
+## Drop Down With Search for iOS
 It's a Swift Library to support Drop Down Menu in iOS
 ### Support Search and Return Correct index
 [![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/1.gif)](images/1.gif)
@@ -133,7 +133,7 @@ You can customize these properties of the drop down:
 ## Note :
     If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
 ## Author
-
+### ✨✨If you like my project please Give me a STAR ✨✨
 Jishnu Raj T, jriosdev@gmail.com
 [![Contact](https://img.shields.io/badge/Contact-%40jishnurajt-blue.svg?style=flat)](https://twitter.com/jishnurajt)
 
