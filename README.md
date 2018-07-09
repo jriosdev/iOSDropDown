@@ -10,7 +10,7 @@
 ## Drop Down With Search for iOS
 It's a Swift Library to support Drop Down Menu in iOS
 
-[![](https://img.youtube.com/vi/zfKE0Blu3Z0/0.jpg)](https://www.youtube.com/watch?v=zfKE0Blu3Z0)
+[![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/youtube.gif)](https://www.youtube.com/watch?v=zfKE0Blu3Z0)
 
 
 ### Support Search and Return Correct index
