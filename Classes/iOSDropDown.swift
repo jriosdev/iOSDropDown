@@ -97,22 +97,14 @@ class DropDown : UITextField{
         
         let size = self.frame.height
         let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size - 2*arrowPadding, height: size))
-        let arrowContainerView = UIView(frame: CGRect(x: self.bounds.maxX - size,
-                                                      y: 0,
-                                                      width: size,
-                                                      height: size))
-        arrowContainerView.isUserInteractionEnabled = true
         self.rightView = rightView
         self.rightViewMode = .always
-        self.addSubview(arrowContainerView)
-        
-        arrow = Arrow(origin: CGPoint(x: arrowPadding,
-                                      y: arrowPadding),
-                      size: arrowContainerView.frame.width - (arrowPadding*2))
+        let arrowContainerView = UIView(frame: rightView.frame)
+        self.rightView?.addSubview(arrowContainerView)
+        let arrowSize = arrowContainerView.frame.width - (arrowPadding*2)
+        arrow = Arrow(origin: CGPoint(x: arrowPadding,y: arrowContainerView.center.y-(arrowSize/2)),size: arrowSize)
         arrowContainerView.addSubview(arrow)
         addGesture()
-        
-        
     }
     fileprivate func addGesture (){
         let gesture =  UITapGestureRecognizer(target: self, action:  #selector(touchAction))
