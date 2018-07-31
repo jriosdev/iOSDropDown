@@ -49,7 +49,7 @@ class DropDown : UITextField{
             self.table.reloadData()
         }
     }
-    public var arrowPadding: CGFloat = 7.0 {
+    @IBInspectable var arrowPadding: CGFloat = 5.0 {
         didSet{
             let size = arrow.superview!.frame.size.width-(arrowPadding*2)
             arrow.frame = CGRect(x: arrowPadding, y: arrowPadding, width: size, height: size)
