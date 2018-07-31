@@ -133,9 +133,11 @@ You can customize these properties of the drop down:
 - `listHeight`: The maximum Height of of List. Default value is `150 ` 
 - `rowHeight`: The  Height of of List in the List. Default value is  ` 30`
 - `Alingment and Fonts are same as TextField You Can change it`
+- `arrowPadding`: inversely proportional to arrow size. Default value is `5 ` 
 
 ## Note :
-    If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
+    1.arrowPadding is inversely proportional to arrow size, if you what to increase size of arrow just give low value to arrowPadding
+    2.If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
 ## Author
 ### ✨✨If you like my project please Give me a STAR on Github✨✨
 Jishnu Raj T, jriosdev@gmail.com
