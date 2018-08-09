@@ -1,14 +1,15 @@
+
 //
 //  iOSDropDown.swift
-//  iOSDropDown
 //
-///  Created by Jishnu Raj T on 26/04/18.
+//
+//  Created by Jishnu Raj T on 26/04/18.
 //  Copyright © 2018 JRiOSdev. All rights reserved.
 //
 
 import UIKit
 
-class DropDown : UITextField{
+public class DropDown : UITextField{
     
     var arrow : Arrow!
     var table : UITableView!
@@ -16,25 +17,51 @@ class DropDown : UITextField{
     
     public fileprivate(set) var selectedIndex: Int?
     
-    //  Configurations
     
-    public var rowHeight: CGFloat = 50
-    public var rowBackgroundColor: UIColor = .white
-    public var selectedRowColor: UIColor = .cyan
-    public var hideOptionsWhenSelect = true
-    public var isSearchEnable: Bool = true {
+    //MARK: IBInspectable
+    
+   @IBInspectable public var rowHeight: CGFloat = 30
+   @IBInspectable public var rowBackgroundColor: UIColor = .white
+   @IBInspectable public var selectedRowColor: UIColor = .cyan
+   @IBInspectable public var hideOptionsWhenSelect = true
+   @IBInspectable  public var isSearchEnable: Bool = true {
         didSet{
             addGesture()
         }
     }
+    
+    
+    @IBInspectable public var borderColor: UIColor =  UIColor.lightGray {
+        didSet {
+            layer.borderColor = borderColor.cgColor
+        }
+    }
+    @IBInspectable public var listHeight: CGFloat = 150{
+        didSet {
+            
+        }
+    }
+    @IBInspectable public var borderWidth: CGFloat = 0.0 {
+        didSet {
+            layer.borderWidth = borderWidth
+        }
+    }
+    
+    @IBInspectable public var cornerRadius: CGFloat = 5.0 {
+        didSet {
+            layer.cornerRadius = cornerRadius
+        }
+    }
+    
     //Variables
     fileprivate  var tableheightX: CGFloat = 100
     fileprivate  var dataArray = [String]()
-    var optionArray = [String]() {
+    public var optionArray = [String]() {
         didSet{
             self.dataArray = self.optionArray
         }
     }
+    public var optionIds : [Int]?
     var searchText = String() {
         didSet{
             if searchText == "" {
@@ -49,60 +76,43 @@ class DropDown : UITextField{
             self.table.reloadData()
         }
     }
-    @IBInspectable var arrowPadding: CGFloat = 5.0 {
+    @IBInspectable var arrowSize: CGFloat = 15 {
         didSet{
-            let size = arrow.superview!.frame.size.width-(arrowPadding*2)
-            arrow.frame = CGRect(x: arrowPadding, y: arrowPadding, width: size, height: size)
+            let center =  arrow.superview!.center
+            arrow.frame = CGRect(x: center.x - arrowSize/2, y: center.y - arrowSize/2, width: arrowSize, height: arrowSize)
         }
     }
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-        
+  
+    // Init
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUI()
         self.delegate = self
     }
     
-    //MARK: IBInspectable
-    
-    @IBInspectable var borderColor: UIColor =  UIColor.lightGray {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
-    @IBInspectable var tableHieght: CGFloat = 50{
-        didSet {
-            
-        }
-    }
-    @IBInspectable var borderWidth: CGFloat = 1.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
+    public required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        setupUI()
+        self.delegate = self
     }
     
-    @IBInspectable var cornerRadius: CGFloat = 5.0 {
-        didSet {
-            layer.cornerRadius = cornerRadius
-        }
-    }
     
     //MARK: Closures
-    fileprivate var didSelectCompletion: (String, Int) -> () = {selectedText, index in }
+    fileprivate var didSelectCompletion: (String, Int ,Int) -> () = {selectedText, index , id  in }
     fileprivate var TableWillAppearCompletion: () -> () = { }
     fileprivate var TableDidAppearCompletion: () -> () = { }
     fileprivate var TableWillDisappearCompletion: () -> () = { }
     fileprivate var TableDidDisappearCompletion: () -> () = { }
     
     func setupUI () {
-        
-        let size = self.frame.height
-        let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size - 2*arrowPadding, height: size))
+       let size = self.frame.height
+        let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
         self.rightView = rightView
         self.rightViewMode = .always
         let arrowContainerView = UIView(frame: rightView.frame)
         self.rightView?.addSubview(arrowContainerView)
-        let arrowSize = arrowContainerView.frame.width - (arrowPadding*2)
-        arrow = Arrow(origin: CGPoint(x: arrowPadding,y: arrowContainerView.center.y-(arrowSize/2)),size: arrowSize)
+        let center = arrowContainerView.center
+        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize)
         arrowContainerView.addSubview(arrow)
         addGesture()
     }
@@ -119,10 +129,10 @@ class DropDown : UITextField{
     public func showList() {
         
         TableWillAppearCompletion()
-        if tableHieght > rowHeight * CGFloat( dataArray.count) {
+        if listHeight > rowHeight * CGFloat( dataArray.count) {
             self.tableheightX = rowHeight * CGFloat(dataArray.count)
         }else{
-            self.tableheightX = tableHieght
+            self.tableheightX = listHeight
         }
         table = UITableView(frame: CGRect(x: self.frame.minX,
                                           y: self.frame.minY,
@@ -196,15 +206,15 @@ class DropDown : UITextField{
         })
     }
     
-    @objc func touchAction() {
+    @objc public func touchAction() {
         
         isSelected ?  hideList() : showList()
     }
     func reSizeTable() {
-        if tableHieght > rowHeight * CGFloat( dataArray.count) {
+        if listHeight > rowHeight * CGFloat( dataArray.count) {
             self.tableheightX = rowHeight * CGFloat(dataArray.count)
         }else{
-            self.tableheightX = tableHieght
+            self.tableheightX = listHeight
         }
         UIView.animate(withDuration: 0.2,
                        delay: 0.1,
@@ -226,23 +236,23 @@ class DropDown : UITextField{
     }
     
     //MARK: Actions Methods
-    public func didSelect(completion: @escaping (_ selectedText: String, _ index: Int) -> ()) {
+    public func didSelect(completion: @escaping (_ selectedText: String, _ index: Int , _ id:Int ) -> ()) {
         didSelectCompletion = completion
     }
     
-    public func tableWillAppear(completion: @escaping () -> ()) {
+    public func listWillAppear(completion: @escaping () -> ()) {
         TableWillAppearCompletion = completion
     }
     
-    public func tableDidAppear(completion: @escaping () -> ()) {
+    public func listDidAppear(completion: @escaping () -> ()) {
         TableDidAppearCompletion = completion
     }
     
-    public func tableWillDisappear(completion: @escaping () -> ()) {
+    public func listWillDisappear(completion: @escaping () -> ()) {
         TableWillDisappearCompletion = completion
     }
     
-    public func tableDidDisappear(completion: @escaping () -> ()) {
+    public func listDidDisappear(completion: @escaping () -> ()) {
         TableDidDisappearCompletion = completion
     }
     
@@ -250,21 +260,21 @@ class DropDown : UITextField{
 
 //MARK: UITextFieldDelegate
 extension DropDown : UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         superview?.endEditing(true)
         return false
     }
-    func  textFieldDidBeginEditing(_ textField: UITextField) {
+    public func  textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
         self.selectedIndex = nil
         self.dataArray = self.optionArray
         touchAction()
     }
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return isSearchEnable
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if string != "" {
             self.searchText = self.text! + string
         }else{
@@ -304,7 +314,8 @@ extension DropDown: UITableViewDataSource {
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
         cell!.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell!.selectionStyle = .none
-        
+        cell?.textLabel?.font = self.font
+        cell?.textLabel?.textAlignment = self.textAlignment
         return cell!
     }
 }
@@ -329,7 +340,12 @@ extension DropDown: UITableViewDelegate {
             self.endEditing(true)
         }
         if let selected = optionArray.index(where: {$0 == selectedText}) {
-            didSelectCompletion(selectedText, selected)
+            if let id = optionIds?[selected] {
+                didSelectCompletion(selectedText, selected , id )
+            }else{
+                didSelectCompletion(selectedText, selected , 0)
+            }
+            
         }
         
     }
