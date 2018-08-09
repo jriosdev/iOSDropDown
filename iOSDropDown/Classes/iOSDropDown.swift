@@ -76,10 +76,10 @@ public class DropDown : UITextField{
             self.table.reloadData()
         }
     }
-    @IBInspectable var arrowPadding: CGFloat = 5.0 {
+    @IBInspectable var arrowSize: CGFloat = 15 {
         didSet{
-            let size = arrow.superview!.frame.size.width-(arrowPadding*2)
-            arrow.frame = CGRect(x: arrowPadding, y: arrowPadding, width: size, height: size)
+            let center =  arrow.superview!.center
+            arrow.frame = CGRect(x: center.x - arrowSize/2, y: center.y - arrowSize/2, width: arrowSize, height: arrowSize)
         }
     }
   
@@ -106,13 +106,13 @@ public class DropDown : UITextField{
     
     func setupUI () {
        let size = self.frame.height
-        let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size - 2*arrowPadding, height: size))
+        let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
         self.rightView = rightView
         self.rightViewMode = .always
         let arrowContainerView = UIView(frame: rightView.frame)
         self.rightView?.addSubview(arrowContainerView)
-        let arrowSize = arrowContainerView.frame.width - (arrowPadding*2)
-        arrow = Arrow(origin: CGPoint(x: arrowPadding,y: arrowContainerView.center.y-(arrowSize/2)),size: arrowSize)
+        let center = arrowContainerView.center
+        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize)
         arrowContainerView.addSubview(arrow)
         addGesture()
     }
