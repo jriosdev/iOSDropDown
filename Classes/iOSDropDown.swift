@@ -15,7 +15,7 @@ public class DropDown : UITextField{
     var table : UITableView!
     var shadow : UIView!
     
-    public fileprivate(set) var selectedIndex: Int?
+    public  var selectedIndex: Int?
     
     
     //MARK: IBInspectable
@@ -266,7 +266,7 @@ extension DropDown : UITextFieldDelegate {
     }
     public func  textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
-        self.selectedIndex = nil
+        //self.selectedIndex = nil
         self.dataArray = self.optionArray
         touchAction()
     }
