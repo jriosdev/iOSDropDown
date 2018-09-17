@@ -9,7 +9,7 @@
 
 import UIKit
 
-public class DropDown : UITextField{
+open class DropDown : UITextField{
     
     var arrow : Arrow!
     var table : UITableView!
