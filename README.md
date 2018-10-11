@@ -132,6 +132,7 @@ You can customize these properties of the drop down:
 - `rowBackgroundColor` : Color of  DropDown Default value is `.white`
 - `listHeight`: The maximum Height of of List. Default value is `150 ` 
 - `rowHeight`: The  Height of of List in the List. Default value is  ` 30`
+- `selectedIndex`:For preSelection of any of item in list
 - `Alingment and Fonts are same as TextField You Can change it`
 - `arrowSize`: The Size of arrow . Default value is `15 ` 
 
