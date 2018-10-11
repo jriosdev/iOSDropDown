@@ -6,7 +6,6 @@
 //  Created by Jishnu Raj T on 26/04/18.
 //  Copyright © 2018 JRiOSdev. All rights reserved.
 //
-
 import UIKit
 
 open class DropDown : UITextField{
@@ -15,7 +14,7 @@ open class DropDown : UITextField{
     var table : UITableView!
     var shadow : UIView!
     
-    public fileprivate(set) var selectedIndex: Int?
+    public  var selectedIndex: Int?
     
     
     //MARK: IBInspectable
@@ -266,7 +265,7 @@ extension DropDown : UITextFieldDelegate {
     }
     public func  textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
-        self.selectedIndex = nil
+        //self.selectedIndex = nil
         self.dataArray = self.optionArray
         touchAction()
     }
@@ -357,7 +356,6 @@ extension DropDown: UITableViewDelegate {
 
 
 //MARK: Arrow
-
 enum Position {
     case left
     case down
@@ -417,7 +415,6 @@ class Arrow: UIView {
         // Mask to path
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = bezierPath.cgPath
-       // shapeLayer.fillColor = UIColor.black.cgColor
         if #available(iOS 12.0, *) {
         self.layer.addSublayer (shapeLayer)
         } else {
