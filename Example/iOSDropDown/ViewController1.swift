@@ -26,7 +26,8 @@ class ViewController1: UIViewController {
         mainDropDown.didSelect{(selectedText , index , id) in
             self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index) \n Id: \(id)"
         }
-            
+        
+        mainDropDown.arrowSize = 10
         // Custom DropDown Data
             self.customData[0].optionArray = option.boolData
             self.customData[2].optionArray = option.color
