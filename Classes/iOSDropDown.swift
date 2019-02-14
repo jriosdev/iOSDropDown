@@ -317,7 +317,7 @@ extension DropDown: UITableViewDataSource {
             cell?.backgroundColor = selectedRowColor
         }
         
-        if (imageArray != nil && imageArray.size < 0) {
+        if (imageArray != nil && imageArray.size < 0 && imageArray.size == dataArray.size) {
             cell!.imageView!.image = UIImage(named:imageArray[indexPath.row])
         }
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
