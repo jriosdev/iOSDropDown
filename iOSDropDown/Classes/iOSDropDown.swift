@@ -55,9 +55,15 @@ open class DropDown : UITextField{
     //Variables
     fileprivate  var tableheightX: CGFloat = 100
     fileprivate  var dataArray = [String]()
+    fileprivate  var imageArray = [String]()
     public var optionArray = [String]() {
         didSet{
             self.dataArray = self.optionArray
+        }
+    }
+    public var optionImageArray = [String]() {
+        didSet{
+            self.imageArray = self.optionImageArray
         }
     }
     public var optionIds : [Int]?
@@ -310,6 +316,9 @@ extension DropDown: UITableViewDataSource {
             cell?.backgroundColor = selectedRowColor
         }
         
+        if self.imageArray.count > indexPath.row {
+            cell!.imageView!.image = UIImage(named: imageArray[indexPath.row])
+        }
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
         cell!.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
         cell!.selectionStyle = .none
