@@ -138,7 +138,8 @@ You can customize these properties of the drop down:
 
 ## Note :
     
-    1.If you are using Multiple Drop Downs in a Single ViewController, Must Kept reverse order on StoryBoard or addSubview()  to avoid Overlaying
+    1.After Update the pod just do clean your buld folder 
+          Product > Clean Build Folder . 
     
 ## Author
 ### ✨✨If you like my project please Give me a STAR on Github✨✨
