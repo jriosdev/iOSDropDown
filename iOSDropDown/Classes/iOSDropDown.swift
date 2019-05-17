@@ -91,6 +91,16 @@ open class DropDown : UITextField{
             arrow.frame = CGRect(x: center.x - arrowSize/2, y: center.y - arrowSize/2, width: arrowSize, height: arrowSize)
         }
     }
+    @IBInspectable public var arrowColor: UIColor = .black {
+        didSet{
+            
+        }
+    }
+    @IBInspectable public var checkMarkEnabled: Bool = true {
+        didSet{
+            
+        }
+    }
 
     // Init
     public override init(frame: CGRect) {
@@ -121,7 +131,7 @@ open class DropDown : UITextField{
         let arrowContainerView = UIView(frame: rightView.frame)
         self.rightView?.addSubview(arrowContainerView)
         let center = arrowContainerView.center
-        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize)
+        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize , color : arrowColor )
         arrowContainerView.addSubview(arrow)
 
         self.backgroundView = UIView(frame: .zero)
@@ -343,7 +353,7 @@ extension DropDown: UITableViewDataSource {
             cell!.imageView!.image = UIImage(named: imageArray[indexPath.row])
         }
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
-        cell!.accessoryType = indexPath.row == selectedIndex ? .checkmark : .none
+        cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
         cell!.selectionStyle = .none
         cell?.textLabel?.font = self.font
         cell?.textLabel?.textAlignment = self.textAlignment
@@ -397,6 +407,7 @@ enum Position {
 
 class Arrow: UIView {
 
+    var arrowColor:UIColor = .black
     var position: Position = .down {
         didSet{
             switch position {
@@ -419,8 +430,9 @@ class Arrow: UIView {
         }
     }
 
-    init(origin: CGPoint, size: CGFloat) {
+    init(origin: CGPoint, size: CGFloat , color:UIColor) {
         super.init(frame: CGRect(x: origin.x, y: origin.y, width: size, height: size))
+        arrowColor = color 
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -447,6 +459,7 @@ class Arrow: UIView {
         // Mask to path
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = bezierPath.cgPath
+        shapeLayer.fillColor = arrowColor.cgColor
         if #available(iOS 12.0, *) {
             self.layer.addSublayer (shapeLayer)
         } else {
@@ -468,10 +481,6 @@ extension UIView {
         layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
 
-
-}
-
-extension UIView {
     var parentViewController: UIViewController? {
         var parentResponder: UIResponder? = self
         while parentResponder != nil {
