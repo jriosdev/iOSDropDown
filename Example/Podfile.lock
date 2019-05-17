@@ -1,23 +1,16 @@
 PODS:
-  - FBSnapshotTestCase (2.1.4):
-    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
-  - FBSnapshotTestCase/Core (2.1.4)
-  - FBSnapshotTestCase/SwiftSupport (2.1.4):
-    - FBSnapshotTestCase/Core
-  - iOSDropDown (0.1.0)
+  - iOSDropDown (0.2.7)
 
 DEPENDENCIES:
-  - FBSnapshotTestCase (~> 2.1.4)
   - iOSDropDown (from `../`)
 
 EXTERNAL SOURCES:
   iOSDropDown:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  iOSDropDown: 58cf5d127d379d256c7a5c4bd7a4602fb9bee4ed
+  iOSDropDown: b7c1d38b89a9367300aaa1c709d46b7a868291cf
 
-PODFILE CHECKSUM: 934d0a2535b883ed18edc405640796999c3052ca
+PODFILE CHECKSUM: 54cfe575c445c2b89e3257b1659dc330cf88d985
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3

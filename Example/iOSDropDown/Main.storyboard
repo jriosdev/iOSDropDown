@@ -313,11 +313,6 @@
                                     <constraint firstAttribute="trailing" secondItem="nKh-B2-FUx" secondAttribute="trailing" constant="18" id="ara-NG-Vw0"/>
                                     <constraint firstItem="8ZN-gm-7r0" firstAttribute="centerX" secondItem="rB6-uP-8Ez" secondAttribute="centerX" id="wQV-Dm-3Ga"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="nKh-B2-FUx"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
