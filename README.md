@@ -141,6 +141,8 @@ You can customize these properties of the drop down:
 - `selectedIndex`:For preSelection of any of item in list
 - `Alingment and Fonts are same as TextField You Can change it`
 - `arrowSize`: The Size of arrow . Default value is `15 ` 
+- `arrowColor`: The Color of arrow . Default value is `.black ` 
+- `checkMarkEnabled`: The check Mark Enabled for selection of Row. Default value is `true ` 
 
 ## Note :
     
