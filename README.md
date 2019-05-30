@@ -151,7 +151,7 @@ You can customize these properties of the drop down:
     
 ## Author
 ### ✨✨If you like my project please Give me a STAR on Github✨✨
-### If this project help you reduce time to develop, you can give me a cup of coffee :) 
+### If this project help you to reduce develop time, can you offer a cup of coffee :) 
 
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/jishnurajt)
 
