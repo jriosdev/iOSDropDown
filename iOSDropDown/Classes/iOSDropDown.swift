@@ -190,9 +190,9 @@ open class DropDown : UITextField{
     public func showList() {
         if parentController == nil{
             parentController = self.parentViewController
-            backgroundView.frame = parentController?.view.frame ?? backgroundView.frame
-            pointToParent = getConvertedPoint(self, baseView: parentController?.view)
         }
+        backgroundView.frame = parentController?.view.frame ?? backgroundView.frame
+        pointToParent = getConvertedPoint(self, baseView: parentController?.view)
         parentController?.view.insertSubview(backgroundView, aboveSubview: self)
         TableWillAppearCompletion()
         if listHeight > rowHeight * CGFloat( dataArray.count) {
@@ -343,7 +343,7 @@ extension DropDown : UITextFieldDelegate {
         textField.text = ""
         //self.selectedIndex = nil
         self.dataArray = self.optionArray
-    //   touchAction()
+        touchAction()
     }
     public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return isSearchEnable
