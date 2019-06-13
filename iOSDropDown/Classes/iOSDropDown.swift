@@ -101,6 +101,11 @@ open class DropDown : UITextField{
             
         }
     }
+    @IBInspectable public var handleKeyboard: Bool = true {
+        didSet{
+            
+        }
+    }
 
     // Init
     public override init(frame: CGRect) {
@@ -137,14 +142,16 @@ open class DropDown : UITextField{
         self.backgroundView = UIView(frame: .zero)
         self.backgroundView.backgroundColor = .clear
         addGesture()
-        if isSearchEnable{
+        if isSearchEnable && handleKeyboard{
             NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
                 if self.isFirstResponder{
                 let userInfo:NSDictionary = notification.userInfo! as NSDictionary
                 let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 self.keyboardHeight = keyboardRectangle.height
-                self.showList()
+                    if !self.isSelected{
+                        self.showList()
+                    }
                 }
               
             }
