@@ -93,7 +93,7 @@ open class DropDown : UITextField{
     }
     @IBInspectable public var arrowColor: UIColor = .black {
         didSet{
-            
+            arrow.arrowColor = arrowColor
         }
     }
     @IBInspectable public var checkMarkEnabled: Bool = true {
@@ -136,7 +136,7 @@ open class DropDown : UITextField{
         let arrowContainerView = UIView(frame: rightView.frame)
         self.rightView?.addSubview(arrowContainerView)
         let center = arrowContainerView.center
-        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize , color : arrowColor )
+        arrow = Arrow(origin: CGPoint(x: center.x - arrowSize/2,y: center.y - arrowSize/2),size: arrowSize  )
         arrowContainerView.addSubview(arrow)
 
         self.backgroundView = UIView(frame: .zero)
@@ -450,8 +450,13 @@ enum Position {
 }
 
 class Arrow: UIView {
-
-    var arrowColor:UIColor = .black
+    let shapeLayer = CAShapeLayer()
+    var arrowColor:UIColor = .black {
+        didSet{
+            shapeLayer.fillColor = arrowColor.cgColor
+        }
+    }
+    
     var position: Position = .down {
         didSet{
             switch position {
@@ -474,9 +479,8 @@ class Arrow: UIView {
         }
     }
 
-    init(origin: CGPoint, size: CGFloat , color:UIColor) {
+    init(origin: CGPoint, size: CGFloat ) {
         super.init(frame: CGRect(x: origin.x, y: origin.y, width: size, height: size))
-        arrowColor = color 
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -501,9 +505,9 @@ class Arrow: UIView {
         bezierPath.close()
 
         // Mask to path
-        let shapeLayer = CAShapeLayer()
         shapeLayer.path = bezierPath.cgPath
-        shapeLayer.fillColor = arrowColor.cgColor
+      //  shapeLayer.fillColor = arrowColor.cgColor
+       
         if #available(iOS 12.0, *) {
             self.layer.addSublayer (shapeLayer)
         } else {

@@ -21,6 +21,7 @@ class ViewController1: UIViewController {
       let option =  Options()
        mainDropDown.optionArray = option.countries
         mainDropDown.optionIds = option.ids
+        mainDropDown.checkMarkEnabled = false
          cstmbutn.isHidden = true
         customView.isHidden = true
         mainDropDown.didSelect{(selectedText , index , id) in
