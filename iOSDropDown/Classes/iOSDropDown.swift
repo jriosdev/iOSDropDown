@@ -14,7 +14,7 @@ open class DropDown : UITextField{
     var table : UITableView!
     var shadow : UIView!
     public  var selectedIndex: Int?
-
+    public var scrollToSelectedIndex:Bool = false
 
     //MARK: IBInspectable
 
@@ -222,6 +222,14 @@ open class DropDown : UITextField{
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
         table.rowHeight = rowHeight
+        if scrollToSelectedIndex{
+            if selectedIndex != nil{
+                if let indexPath = NSIndexPath(row: selectedIndex!, section: 0) as? IndexPath{
+                    self.table.scrollToRow(at: indexPath, at: .top, animated: true)
+                    self.table.reloadData()
+                }
+            }
+        }
         parentController?.view.addSubview(shadow)
         parentController?.view.addSubview(table)
         self.isSelected = true
