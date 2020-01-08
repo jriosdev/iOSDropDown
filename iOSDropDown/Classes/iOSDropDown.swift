@@ -15,7 +15,8 @@ open class DropDown : UITextField{
     var shadow : UIView!
     public  var selectedIndex: Int?
     public var scrollToSelectedIndex:Bool = false
-
+    public var selectedTextColor: UIColor = UIColor(red: 2/255, green: 2/255, blue: 2/255, alpha: 1)
+    var defaultTextColor = UIColor(red: 2/255, green: 2/255, blue: 2/255, alpha: 1)
     //MARK: IBInspectable
 
     @IBInspectable public var rowHeight: CGFloat = 30
@@ -408,6 +409,7 @@ extension DropDown: UITableViewDataSource {
         
         cell!.textLabel!.textColor = rowTextColor
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
+        cell?.textLabel!.textColor = (indexPath.row == selectedIndex) ? selectedTextColor : defaultTextColor
         cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
         cell!.selectionStyle = .none
         cell?.textLabel?.font = self.font
