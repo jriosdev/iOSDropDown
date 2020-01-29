@@ -437,7 +437,7 @@ extension DropDown: UITableViewDelegate {
             touchAction()
             self.endEditing(true)
         }
-        if let selected = optionArray.index(where: {$0 == selectedText}) {
+        if let selected = optionArray.firstIndex(where: {$0 == selectedText}) {
             if let id = optionIds?[selected] {
                 didSelectCompletion(selectedText, selected , id )
             }else{
