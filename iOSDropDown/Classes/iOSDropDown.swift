@@ -57,7 +57,7 @@ open class DropDown : UITextField{
     fileprivate  var tableheightX: CGFloat = 100
     fileprivate  var dataArray = [String]()
     fileprivate  var imageArray = [String]()
-    fileprivate  var parentController:UIViewController?
+    fileprivate weak var parentController:UIViewController?
     fileprivate  var pointToParent = CGPoint(x: 0, y: 0)
     fileprivate var backgroundView = UIView()
     fileprivate var keyboardHeight:CGFloat = 0
