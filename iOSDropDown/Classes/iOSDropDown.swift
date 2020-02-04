@@ -224,11 +224,10 @@ open class DropDown : UITextField{
         table.backgroundColor = rowBackgroundColor
         table.rowHeight = rowHeight
         if scrollToSelectedIndex{
-            if selectedIndex != nil{
-                if let indexPath = NSIndexPath(row: selectedIndex!, section: 0) as? IndexPath{
-                    self.table.scrollToRow(at: indexPath, at: .top, animated: true)
-                    self.table.reloadData()
-                }
+            if let selectedIndex = selectedIndex {
+                let indexPath = IndexPath(row: selectedIndex, section: 0)
+                self.table.scrollToRow(at: indexPath, at: .top, animated: true)
+                self.table.reloadData()
             }
         }
         parentController?.view.addSubview(shadow)
@@ -437,7 +436,7 @@ extension DropDown: UITableViewDelegate {
             touchAction()
             self.endEditing(true)
         }
-        if let selected = optionArray.index(where: {$0 == selectedText}) {
+        if let selected = optionArray.firstIndex(where: {$0 == selectedText}) {
             if let id = optionIds?[selected] {
                 didSelectCompletion(selectedText, selected , id )
             }else{
