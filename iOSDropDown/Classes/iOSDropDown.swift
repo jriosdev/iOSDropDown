@@ -14,13 +14,12 @@ open class DropDown : UITextField{
     var table : UITableView!
     var shadow : UIView!
     public  var selectedIndex: Int?
-    public var scrollToSelectedIndex:Bool = false
+
 
     //MARK: IBInspectable
 
     @IBInspectable public var rowHeight: CGFloat = 30
     @IBInspectable public var rowBackgroundColor: UIColor = .white
-    @IBInspectable public var rowTextColor: UIColor = .black
     @IBInspectable public var selectedRowColor: UIColor = .cyan
     @IBInspectable public var hideOptionsWhenSelect = true
     @IBInspectable  public var isSearchEnable: Bool = true {
@@ -144,10 +143,10 @@ open class DropDown : UITextField{
         self.backgroundView.backgroundColor = .clear
         addGesture()
         if isSearchEnable && handleKeyboard{
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: nil) { (notification) in
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillShow, object: nil, queue: nil) { (notification) in
                 if self.isFirstResponder{
                 let userInfo:NSDictionary = notification.userInfo! as NSDictionary
-                    let keyboardFrame:NSValue = userInfo.value(forKey: UIResponder.keyboardFrameEndUserInfoKey) as! NSValue
+                    let keyboardFrame:NSValue = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
                 let keyboardRectangle = keyboardFrame.cgRectValue
                 self.keyboardHeight = keyboardRectangle.height
                     if !self.isSelected{
@@ -156,7 +155,7 @@ open class DropDown : UITextField{
                 }
               
             }
-            NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: nil) { (notification) in
+            NotificationCenter.default.addObserver(forName: NSNotification.Name.UIKeyboardWillHide, object: nil, queue: nil) { (notification) in
                 if self.isFirstResponder{
                 self.keyboardHeight = 0
                 }
@@ -222,14 +221,6 @@ open class DropDown : UITextField{
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
         table.rowHeight = rowHeight
-        if scrollToSelectedIndex{
-            if selectedIndex != nil{
-                if let indexPath = NSIndexPath(row: selectedIndex!, section: 0) as? IndexPath{
-                    self.table.scrollToRow(at: indexPath, at: .top, animated: true)
-                    self.table.reloadData()
-                }
-            }
-        }
         parentController?.view.addSubview(shadow)
         parentController?.view.addSubview(table)
         self.isSelected = true
@@ -405,8 +396,6 @@ extension DropDown: UITableViewDataSource {
         if self.imageArray.count > indexPath.row {
             cell!.imageView!.image = UIImage(named: imageArray[indexPath.row])
         }
-        
-        cell!.textLabel!.textColor = rowTextColor
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
         cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled  ? .checkmark : .none
         cell!.selectionStyle = .none
@@ -435,7 +424,7 @@ extension DropDown: UITableViewDelegate {
             touchAction()
             self.endEditing(true)
         }
-        if let selected = optionArray.index(where: {$0 == selectedText}) {
+        if let selected = optionArray.firstIndex(where: {$0 == selectedText}) {
             if let id = optionIds?[selected] {
                 didSelectCompletion(selectedText, selected , id )
             }else{
@@ -551,4 +540,5 @@ extension UIView {
         return nil
     }
 }
+
 
