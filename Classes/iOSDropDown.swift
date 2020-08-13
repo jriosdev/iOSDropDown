@@ -60,6 +60,7 @@ open class DropDown : UITextField{
     fileprivate var backgroundView = UIView()
     fileprivate var keyboardHeight:CGFloat = 0
 
+    public var rowTextColor: UIcolor = .black
     public var optionArray = [String]() {
         didSet{
             self.dataArray = self.optionArray
@@ -401,6 +402,7 @@ extension DropDown: UITableViewDataSource {
         cell!.selectionStyle = .none
         cell?.textLabel?.font = self.font
         cell?.textLabel?.textAlignment = self.textAlignment
+        cell?.textLabel?.textColor = rowTextColor
         return cell!
     }
 }
