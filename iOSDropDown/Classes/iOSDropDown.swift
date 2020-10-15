@@ -7,7 +7,7 @@
 //  Copyright © 2018 JRiOSdev. All rights reserved.
 //
 import UIKit
-
+@objc(JRDropDown)
 open class DropDown : UITextField{
 
     var arrow : Arrow!
@@ -402,7 +402,7 @@ extension DropDown: UITableViewDataSource {
         cell?.textLabel?.font = self.font
         cell?.textLabel?.textAlignment = self.textAlignment
         cell?.textLabel?.numberOfLines = 0
-        cell?.textLabel?.lineBreakMode = .byWrodWrapping
+        cell?.textLabel?.lineBreakMode = .byWordWrapping
         return cell!
     }
 }
