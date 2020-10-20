@@ -30,9 +30,9 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Features
  1. Simple UITextField Extension And simple to use  , We can Access all properties of UITextField
     [![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/4.gif)](images/4.gif)
- 2. DropDown Search can enable or disable
- 3. Change color of List background and selected color 
- 4. Change Maximum Hieght of List and Height of each Row
+ 2. DropDown Search can be enabled or disabled
+ 3. Change background color of the List and the selected color as well
+ 4. Change the maximum height of the List and the height of each Row
 
 ## Installation
 ### CocoaPods
