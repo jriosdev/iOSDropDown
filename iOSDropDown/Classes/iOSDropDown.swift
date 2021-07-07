@@ -22,7 +22,7 @@ open class DropDown : UITextField{
     @IBInspectable public var rowBackgroundColor: UIColor = .white
     @IBInspectable public var selectedRowColor: UIColor = .cyan
     @IBInspectable public var hideOptionsWhenSelect = true
-    @IBInspectable  public var isSearchEnable: Bool = true {
+    @IBInspectable public var isSearchEnable: Bool = true {
         didSet{
             addGesture()
         }
@@ -52,11 +52,11 @@ open class DropDown : UITextField{
     }
 
     //Variables
-    fileprivate  var tableheightX: CGFloat = 100
-    fileprivate  var dataArray = [String]()
-    fileprivate  var imageArray = [String]()
-    fileprivate  var parentController:UIViewController?
-    fileprivate  var pointToParent = CGPoint(x: 0, y: 0)
+    fileprivate var tableheightX: CGFloat = 100
+    fileprivate var dataArray = [String]()
+    fileprivate var imageArray = [String]()
+    fileprivate weak var parentController:UIViewController?
+    fileprivate var pointToParent = CGPoint(x: 0, y: 0)
     fileprivate var backgroundView = UIView()
     fileprivate var keyboardHeight:CGFloat = 0
 
