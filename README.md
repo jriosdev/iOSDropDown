@@ -35,6 +35,19 @@ To run the example project, clone the repo, and run `pod install` from the Examp
  4. Change the maximum height of the List and the height of each Row
 
 ## Installation
+
+### Swift Package Manager
+
+The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler. 
+
+Once you have your Swift package set up, adding iOSDropDown as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/jriosdev/iOSDropDown.git", .upToNextMajor(from: "0.4.0"))
+]
+```
+
 ### CocoaPods
 
 Use [CocoaPods](http://www.cocoapods.org).
