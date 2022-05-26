@@ -129,9 +129,9 @@ Closures
  }
  ```
 
-## Customize iOSDropDown 🖌
+## Customizes iOSDropDown 🖌
 
-You can customize these properties of the drop down:
+You can customizes these properties of the drop down:
 - `isSearchEnabled ` : You can Enable or Disable on DropDown .Default value Is `true`
 - `hideOptionsWhenSelect` : This  option to hide the list when click option one item. Default value is `true`
 - `selectedRowColor` : Color of selected Row item in DropDown Default value is `.cyan`
@@ -139,10 +139,13 @@ You can customize these properties of the drop down:
 - `listHeight`: The maximum Height of of List. Default value is `150 ` 
 - `rowHeight`: The  Height of of List in the List. Default value is  ` 30`
 - `selectedIndex`:For preSelection of any of item in list
-- `Alingment and Fonts are same as TextField You Can change it`
 - `arrowSize`: The Size of arrow . Default value is `15 ` 
 - `arrowColor`: The Color of arrow . Default value is `.black ` 
 - `checkMarkEnabled`: The check Mark Enabled for selection of Row. Default value is `true ` 
+- `textColor ` : You can change DropDown selected Text Color
+- `semanticContentAttribute ` : Semantic attribute for RTL or LTR
+-
+- `All Other TextField Properties are available with DropDown` like `alignment`,`font`,`textColor`,`semanticContentAttribute` ...etc
 
 ## Note :
     
