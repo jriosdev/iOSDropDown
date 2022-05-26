@@ -18,9 +18,9 @@ open class DropDown: UITextField {
 
     @IBInspectable public var rowHeight: CGFloat = 30
     @IBInspectable public var rowBackgroundColor: UIColor = .white
-    @IBInspectable public var itemsColor: UIColor = .gray
+    @IBInspectable public var itemsColor: UIColor = .darkGray
     @IBInspectable public var itemsTintColor: UIColor = .blue
-    @IBInspectable public var selectedRowColor: UIColor = .cyan
+    @IBInspectable public var selectedRowColor: UIColor = .systemPink
     @IBInspectable public var hideOptionsWhenSelect = true
     @IBInspectable public var isSearchEnable: Bool = true {
         didSet {
@@ -134,12 +134,18 @@ open class DropDown: UITextField {
 
     func setupUI() {
         let size = frame.height
-        let rightView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
-        self.rightView = rightView
-        rightViewMode = .always
-        let arrowContainerView = UIView(frame: rightView.frame)
-        self.rightView?.addSubview(arrowContainerView)
-        let center = arrowContainerView.center
+        let arrowView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: size, height: size))
+        let arrowContainerView = UIView(frame: arrowView.frame)
+        if semanticContentAttribute == .forceRightToLeft {
+            leftView = arrowView
+            leftViewMode = .always
+            leftView?.addSubview(arrowContainerView)
+        } else {
+            rightView = arrowView
+            rightViewMode = .always
+            rightView?.addSubview(arrowContainerView)
+        }
+
         arrow = Arrow(origin: CGPoint(x: center.x - arrowSize / 2, y: center.y - arrowSize / 2), size: arrowSize)
         arrowContainerView.addSubview(arrow)
 

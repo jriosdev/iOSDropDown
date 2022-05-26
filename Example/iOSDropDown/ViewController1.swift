@@ -22,6 +22,7 @@ class ViewController1: UIViewController {
        mainDropDown.optionArray = option.countries
         mainDropDown.optionIds = option.ids
         mainDropDown.checkMarkEnabled = false
+        mainDropDown.semanticContentAttribute = .forceRightToLeft
          cstmbutn.isHidden = true
         customView.isHidden = true
         mainDropDown.didSelect{(selectedText , index , id) in
