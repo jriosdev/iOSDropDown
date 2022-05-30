@@ -141,6 +141,16 @@ Closures
    //You can Do anything when iOS DropDown listDidDisappear
  }
  ```
+ 
+ Custom filter fuction
+
+ ```swift
+ // overridable function for filter action
+ 
+    func searchFilter(text: String, searchText: String) -> Bool {
+        // you can add custom filter fuctions as your need, like other than english ..etc
+    }
+ ```
 
 ## Customizes iOSDropDown 🖌
 
