@@ -18,7 +18,7 @@ Watch Video on :
 [![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/1.gif)](images/1.gif)
 ### Customizing
 [![](https://raw.githubusercontent.com/jriosdev/iOSDropDown/master/images/2.gif)](images/2.gif)
-### hideOptionWhenSelect = false
+
 
 
 
