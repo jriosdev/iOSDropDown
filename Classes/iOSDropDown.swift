@@ -338,6 +338,14 @@ open class DropDown : UITextField{
     public func listDidDisappear(completion: @escaping () -> ()) {
         TableDidDisappearCompletion = completion
     }
+    
+    public func enableArrow() {
+        self.rightViewMode = .always
+    }
+    
+    public func disableArrow() {
+        self.rightViewMode = .never
+    }
 
 }
 
