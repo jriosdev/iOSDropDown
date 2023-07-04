@@ -428,8 +428,11 @@ extension DropDown: UITableViewDataSource {
 
 extension DropDown: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = (indexPath as NSIndexPath).row
-        let selectedText = dataArray[selectedIndex!]
+        
+        let currentIndex = (indexPath as NSIndexPath).row
+        let selectedText = dataArray[currentIndex]
+        selectedIndex = isSearchEnable ? (optionArray.firstIndex(of: selectedText) ?? currentIndex) : currentIndex // Correct Index For Searched Text
+
         tableView.cellForRow(at: indexPath)?.alpha = 0
         UIView.animate(withDuration: 0.5,
                        animations: { () -> Void in
