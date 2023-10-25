@@ -38,13 +38,17 @@ class ViewController1: UIViewController {
         customData[4].optionArray = option.height
         customData[5].optionArray = option.height
         customData[6].optionArray = option.boolData
+        customData[7].optionArray = option.positionData
         customData[0].isSearchEnable = false
         customData[2].isSearchEnable = false
         customData[3].isSearchEnable = false
         customData[4].isSearchEnable = false
         customData[5].isSearchEnable = false
         customData[6].isSearchEnable = false
+        customData[7].isSearchEnable = false
+        
         // Custom Dropdown didSelect
+        
 
         customData[0].didSelect(completion: { selected, _, _ in
             self.mainDropDown.isSearchEnable = Bool(selected)!
@@ -73,10 +77,12 @@ class ViewController1: UIViewController {
         customData[6].didSelect(completion: { selected, _, _ in
             self.mainDropDown.hideOptionsWhenSelect = Bool(selected)!
         })
-
+        customData[7].didSelect(completion: { selected, _, _ in
+            self.mainDropDown.dropdownPosition = selected == "TOP" ? .TOP : .BOTTOM
+        })
         segment.addTarget(self, action: #selector(ViewController1.segmentedDidChange(_:)), for: .valueChanged)
     }
-
+    
     @objc func segmentedDidChange(_ sender: UISegmentedControl) {
         let index = sender.selectedSegmentIndex
         if index == 0 {
