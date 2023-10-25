@@ -9,6 +9,12 @@
 import UIKit
 @objc(JRDropDown)
 open class DropDown: UITextField {
+    
+    public enum DropdownPosition: Equatable {
+        case TOP
+        case BOTTOM
+    }
+    
     var arrow: Arrow!
     var table: UITableView!
     var shadow: UIView!
@@ -59,6 +65,7 @@ open class DropDown: UITextField {
     fileprivate var pointToParent = CGPoint(x: 0, y: 0)
     fileprivate var backgroundView = UIView()
     fileprivate var keyboardHeight: CGFloat = 0
+    
 
     public var optionArray = [String]() {
         didSet {
@@ -85,6 +92,11 @@ open class DropDown: UITextField {
             reSizeTable()
             selectedIndex = nil
             table.reloadData()
+        }
+    }
+    
+    public var dropdownPosition: DropdownPosition = .BOTTOM {
+        didSet {
         }
     }
 
@@ -217,10 +229,20 @@ open class DropDown: UITextField {
         } else {
             tableheightX = listHeight
         }
-        table = UITableView(frame: CGRect(x: pointToParent.x,
-                                          y: pointToParent.y + frame.height,
-                                          width: frame.width,
-                                          height: frame.height))
+        
+        if dropdownPosition == .TOP {
+            table = UITableView(frame: CGRect(x: pointToParent.x ,
+                                              y: pointToParent.y - tableheightX ,
+                                              width: frame.width,
+                                              height: frame.height))
+            print(table.frame)
+        }else {
+            table = UITableView(frame: CGRect(x: pointToParent.x ,
+                                              y: pointToParent.y + frame.height ,
+                                              width: frame.width,
+                                              height: frame.height))
+        }
+        
         shadow = UIView(frame: table.frame)
         shadow.backgroundColor = .clear
 
@@ -236,7 +258,7 @@ open class DropDown: UITextField {
         isSelected = true
         let height = (parentController?.view.frame.height ?? 0) - (pointToParent.y + frame.height + 5)
         var y = pointToParent.y + frame.height + 5
-        if height < (keyboardHeight + tableheightX) {
+        if height < (keyboardHeight + tableheightX) || dropdownPosition == .TOP {
             y = pointToParent.y - tableheightX
         }
         UIView.animate(withDuration: 0.9,
