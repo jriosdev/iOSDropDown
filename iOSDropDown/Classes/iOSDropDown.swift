@@ -12,7 +12,7 @@ open class DropDown: UITextField {
     var arrow: Arrow!
     var table: UITableView!
     var shadow: UIView!
-    public var selectedIndex: Int?
+    public var selectedIndexes: [Int] = []
 
     // MARK: IBInspectable
 
@@ -50,6 +50,17 @@ open class DropDown: UITextField {
             layer.cornerRadius = cornerRadius
         }
     }
+    
+    @IBInspectable public var isMultiSelectEnabled: Bool = false {
+        didSet {
+            isSearchEnable = false
+        }
+    }
+    
+    @IBInspectable public var showScrollBarAlways: Bool = true {
+        didSet {
+        }
+    }
 
     // Variables
     fileprivate var tableheightX: CGFloat = 100
@@ -59,6 +70,7 @@ open class DropDown: UITextField {
     fileprivate var pointToParent = CGPoint(x: 0, y: 0)
     fileprivate var backgroundView = UIView()
     fileprivate var keyboardHeight: CGFloat = 0
+    fileprivate var timerForShowScrollIndicator: Timer?
 
     public var optionArray = [String]() {
         didSet {
@@ -83,7 +95,7 @@ open class DropDown: UITextField {
                 }
             }
             reSizeTable()
-            selectedIndex = nil
+            selectedIndexes.removeAll()
             table.reloadData()
         }
     }
@@ -127,6 +139,7 @@ open class DropDown: UITextField {
     // MARK: Closures
 
     fileprivate var didSelectCompletion: (String, Int, Int) -> Void = { _, _, _ in }
+    fileprivate var didMultipleSelectCompletion: ([String], [Int], [Int]) -> Void = { _, _, _ in}
     fileprivate var TableWillAppearCompletion: () -> Void = { }
     fileprivate var TableDidAppearCompletion: () -> Void = { }
     fileprivate var TableWillDisappearCompletion: () -> Void = { }
@@ -204,6 +217,16 @@ open class DropDown: UITextField {
         return superView!.convert(pnt, to: baseView)
     }
 
+    @objc func showScrollIndicator() {
+        UIView.animate(withDuration: 0.001) {
+            self.table.flashScrollIndicators()
+        }
+    }
+    
+    func startTimerForShowScrollIndicator() {
+        self.timerForShowScrollIndicator = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(self.showScrollIndicator), userInfo: nil, repeats: true)
+    }
+    
     public func showList() {
         if parentController == nil {
             parentController = parentViewController
@@ -231,6 +254,10 @@ open class DropDown: UITextField {
         table.layer.cornerRadius = 3
         table.backgroundColor = rowBackgroundColor
         table.rowHeight = rowHeight
+        if (showScrollBarAlways) {
+            self.startTimerForShowScrollIndicator()
+        }
+        
         parentController?.view.addSubview(shadow)
         parentController?.view.addSubview(table)
         isSelected = true
@@ -264,6 +291,8 @@ open class DropDown: UITextField {
 
     public func hideList() {
         TableWillDisappearCompletion()
+        timerForShowScrollIndicator?.invalidate()
+        timerForShowScrollIndicator = nil
         UIView.animate(withDuration: 1.0,
                        delay: 0.4,
                        usingSpringWithDamping: 0.9,
@@ -336,6 +365,10 @@ open class DropDown: UITextField {
         didSelectCompletion = completion
     }
 
+    public func didSelectMulti(completion: @escaping (_ selectedTexts: [String], _ indexes: [Int], _ ids: [Int]) -> Void) {
+        didMultipleSelectCompletion = completion
+    }
+    
     public func listWillAppear(completion: @escaping () -> Void) {
         TableWillAppearCompletion = completion
     }
@@ -402,7 +435,7 @@ extension DropDown: UITableViewDataSource {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
         }
 
-        if indexPath.row != selectedIndex {
+        if !selectedIndexes.contains(indexPath.row) {
             cell!.backgroundColor = rowBackgroundColor
         } else {
             cell?.backgroundColor = selectedRowColor
@@ -414,7 +447,7 @@ extension DropDown: UITableViewDataSource {
         cell!.textLabel!.text = "\(dataArray[indexPath.row])"
         cell!.textLabel!.textColor = itemsColor
         cell!.tintColor = itemsTintColor
-        cell!.accessoryType = (indexPath.row == selectedIndex) && checkMarkEnabled ? .checkmark : .none
+        cell!.accessoryType = (selectedIndexes.contains(indexPath.row)) && checkMarkEnabled ? .checkmark : .none
         cell!.selectionStyle = .none
         cell?.textLabel?.font = font
         cell?.textLabel?.textAlignment = textAlignment
@@ -431,8 +464,19 @@ extension DropDown: UITableViewDelegate {
         
         let currentIndex = (indexPath as NSIndexPath).row
         let selectedText = dataArray[currentIndex]
-        selectedIndex = isSearchEnable ? (optionArray.firstIndex(of: selectedText) ?? currentIndex) : currentIndex // Correct Index For Searched Text
-
+        
+        let selectedIndex = isSearchEnable ? (optionArray.firstIndex(of: selectedText) ?? currentIndex) : currentIndex // Correct Index For Searched Text
+        if (!isMultiSelectEnabled) {
+            selectedIndexes.removeAll()
+            selectedIndexes.append(selectedIndex)
+        } else {
+            if (selectedIndexes.contains(selectedIndex)) {
+                selectedIndexes.removeAll{ $0 == selectedIndex }
+            } else {
+                selectedIndexes.append(selectedIndex)
+            }
+        }
+        
         tableView.cellForRow(at: indexPath)?.alpha = 0
         UIView.animate(withDuration: 0.5,
                        animations: { () -> Void in
@@ -440,20 +484,38 @@ extension DropDown: UITableViewDelegate {
                            tableView.cellForRow(at: indexPath)?.backgroundColor = self.selectedRowColor
                        },
                        completion: { (_) -> Void in
-                           self.text = "\(selectedText)"
+                        
+            self.text = self.selectedIndexes.map { self.dataArray[$0] }.joined(separator: ", ")
 
                            tableView.reloadData()
                        })
-        if hideOptionsWhenSelect {
+        if hideOptionsWhenSelect && isMultiSelectEnabled == false {
             touchAction()
             endEditing(true)
         }
-        if let selected = optionArray.firstIndex(where: { $0 == selectedText }) {
-            if let id = optionIds?[selected] {
-                didSelectCompletion(selectedText, selected, id)
-            } else {
-                didSelectCompletion(selectedText, selected, 0)
+        
+        if (!isMultiSelectEnabled) {
+            if let selected = optionArray.firstIndex(where: { $0 == selectedText }) {
+                if let id = optionIds?[selected] {
+                    didSelectCompletion(selectedText, selected, id)
+                } else {
+                    didSelectCompletion(selectedText, selected, 0)
+                }
             }
+        } else {
+            let sortedSelectedIndexes = selectedIndexes.sorted()
+            let selectedArrayText = sortedSelectedIndexes.map { optionArray[$0] }
+            var selectedArrayIds: [Int] = []
+            if optionIds?.isEmpty == false {
+                selectedArrayIds = sortedSelectedIndexes.map { [weak self] in
+                    guard let ids = self?.optionIds, ids.count > $0 else {
+                        return 0
+                    }
+                    return ids[$0]
+                }
+            }
+            print (selectedArrayIds)
+            didMultipleSelectCompletion(selectedArrayText, sortedSelectedIndexes, selectedArrayIds)
         }
     }
 }
