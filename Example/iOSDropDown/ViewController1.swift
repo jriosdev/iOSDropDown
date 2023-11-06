@@ -22,6 +22,9 @@ class ViewController1: UIViewController {
         mainDropDown.optionArray = option.countries
         mainDropDown.optionIds = option.ids
         mainDropDown.checkMarkEnabled = false
+        mainDropDown.showScrollBarAlways = true
+        mainDropDown.isMultiSelectEnabled = true
+        mainDropDown.isSearchEnable = false
         mainDropDown.semanticContentAttribute = .forceRightToLeft
         mainDropDown.textColor = .red
         cstmbutn.isHidden = true
@@ -29,6 +32,12 @@ class ViewController1: UIViewController {
         mainDropDown.didSelect { selectedText, index, id in
             self.valueLabel.text = "Selected String: \(selectedText) \n index: \(index) \n Id: \(id)"
         }
+        
+        mainDropDown.didSelectMulti { text, indexes, ids in
+            self.valueLabel.text = "Selected : \(text.joined(separator: ", ")) \n \(indexes) \n \(ids)"
+        }
+        
+        
 
         mainDropDown.arrowSize = 10
         // Custom DropDown Data
